@@ -18,7 +18,9 @@ object Boot {
 
   implicit val timeout = new Timeout(10 second)
 
-  implicit val system = ActorSystem("test", ConfigFactory.load)
+  val config = ConfigFactory.load()
+
+  implicit val system = ActorSystem("sprayseed", config)
 
   val service = system.actorOf(Props[ServiceActor], "service")
 
@@ -26,9 +28,7 @@ object Boot {
 
 //    Kamon.start()
 
-    IO(Http) ? Http.Bind(service, interface = "localhost", port = 9000)
-
-//    system.actorOf(Props(classOf[TimeoutActor]))
+    IO(Http) ? Http.Bind(service, interface = "localhost", port = config.getString("server.port").toInt)
 
   }
 

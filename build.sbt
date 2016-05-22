@@ -36,6 +36,7 @@ libraryDependencies ++= {
     , "com.fasterxml.jackson.core"       %   "jackson-databind"         %   jacksonV
     , "com.fasterxml.jackson.dataformat" %   "jackson-dataformat-yaml"  %   jacksonV
     , "com.fasterxml.jackson.datatype"   %   "jackson-datatype-joda"    %   jacksonV
+    , "ch.qos.logback"                   %   "logback-classic"          %   "1.1.7"
 
     , "io.kamon" % "kamon-core_2.11" % kamonVersion
     , "io.kamon" % "kamon-spray_2.11" % kamonVersion

@@ -14,7 +14,7 @@ import spray.routing._
 import scala.concurrent.duration._
 import scala.util.Failure
 import kamon.spray.KamonTraceDirectives._
-import route.customRoute.ImageRoute
+import route.customRoute.{ImageRoute, StdRoute}
 /**
  * Created by xinszhou on 3/30/16.
  */
@@ -57,6 +57,7 @@ trait RootRoute extends HttpService {
 }
 
 trait ServiceRoute extends RootRoute
+  with StdRoute
   with ImageRoute {
   override def routes = {
     path("image") {

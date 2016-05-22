@@ -13,7 +13,7 @@ trait StdRoute extends RootRoute {
     getRoute ~ postRoute
   }
 
-  def getRoute: Route = path("get") {
+  def getRoute: Route = (path("get") & get) {
     respondWithMediaType(`text/html`) {
       complete {
         "stardard route"
