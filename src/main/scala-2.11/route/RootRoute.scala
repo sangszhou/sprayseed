@@ -14,7 +14,7 @@ import spray.routing._
 import scala.concurrent.duration._
 import scala.util.Failure
 import kamon.spray.KamonTraceDirectives._
-import route.customRoute.{ImageRoute, StdRoute}
+import route.customRoute.{ImageRoute, StdRoute, SwaggerRoute}
 /**
  * Created by xinszhou on 3/30/16.
  */
@@ -69,4 +69,10 @@ trait ServiceRoute extends RootRoute
       super.routes
     }
   }
+}
+
+trait IndexRoute extends RootRoute
+  with ServiceRoute
+  with SwaggerRoute {
+
 }

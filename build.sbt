@@ -42,6 +42,7 @@ libraryDependencies ++= {
     , "io.kamon" % "kamon-spray_2.11" % kamonVersion
     , "io.kamon" %% "kamon-log-reporter" % kamonVersion
     , "io.kamon" % "kamon-statsd_2.11" % "0.6.0"
+    , "com.gettyimages" %% "spray-swagger" % "0.5.1"
 
 
   )

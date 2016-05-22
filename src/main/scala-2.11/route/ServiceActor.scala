@@ -7,7 +7,7 @@ import spray.util.LoggingContext
 /**
   * Created by xinszhou on 3/30/16.
   */
-class ServiceActor extends Actor with ServiceRoute with ActorLogging {
+class ServiceActor extends Actor with IndexRoute with ActorLogging {
 
   def actorRefFactory: ActorRefFactory = context
 
