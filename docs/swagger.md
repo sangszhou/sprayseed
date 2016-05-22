@@ -2,7 +2,10 @@
 libraryDependencies += "com.gettyimages" %% "spray-swagger" % "0.5.1"
 
 ## create swagger route
-should introduce runtime.universe._ for `typeOf`
+1. should introduce runtime.universe._ for `typeOf`
+2. copy swagger UI html, css, js from github
+3. change swagger url in index.html to self defined json address, in our project, change to docs-raw
+4. add swagger ui route to `routes`
 
 ## add annotation
 ```
@@ -21,6 +24,8 @@ trait PetHttpService extends HttpService {
     } }
 }
 ```
+
+
 
 ## Notes
 1. for swagger route, empty.reduceLeft exception will be thrown when forget to put

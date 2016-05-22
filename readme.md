@@ -8,7 +8,6 @@ import into your intellij idea/eclipse IDE as sbt project, find 'start.Boot' cla
 You can change the default port of this server in `application.conf`
 
 ## todo
-1. support swagger
 2. support kamon
 3. support authorization
 4. support websocket
