@@ -1,5 +1,7 @@
 package route.customRoute
 
+import javax.ws.rs.Path
+
 import com.wordnik.swagger.annotations._
 import route.RootRoute
 import spray.http.MediaTypes._
@@ -16,6 +18,7 @@ trait StdRoute extends RootRoute {
   }
 
 
+  @Path("/get")
   @ApiOperation(
     value = "example route, get method without parameter",
     httpMethod = "GET"
@@ -26,7 +29,7 @@ trait StdRoute extends RootRoute {
   def getRoute: Route = (path("get") & get) {
     respondWithMediaType(`text/html`) {
       complete {
-        "stardard route"
+        "{\"data\": \"stardard route\"}"
       }
     }
   }

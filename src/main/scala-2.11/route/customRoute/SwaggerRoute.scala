@@ -4,6 +4,7 @@ import akka.actor.{Actor, ActorRefFactory}
 import com.gettyimages.spray.swagger.SwaggerHttpService
 import com.sun.tools.javac.code.TypeTag
 import route.RootRoute
+import spray.http.MediaTypes._
 import spray.http.StatusCodes
 
 import scala.reflect.runtime.universe._
@@ -22,15 +23,21 @@ trait SwaggerRoute extends RootRoute with Actor {
 
     override def baseUrl: String = "/"
 
-    override def docsPath = "api-docs"
+    override def docsPath = "docs-raw"
 
     override implicit def actorRefFactory: ActorRefFactory = context
   }
 
-  override def routes = super.routes ~
-    path("docs") {
-      getFromResource("swagger/index.html")
-    } ~
-    getFromResourceDirectory("swagger") ~ swaggerHttpService.routes
+  override def routes =
+    super.routes ~
+      pathPrefix("docs") {
+        pathSingleSlash {
+          getFromResource("swagger/index.html")
+        } ~
+          getFromResourceDirectory("swagger")
+      } ~ path("docs") {
+      redirect("docs/", StatusCodes.PermanentRedirect)
+    } ~ swaggerHttpService.routes
+
 
 }
